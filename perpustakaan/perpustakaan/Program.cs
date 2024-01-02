@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using perpustakaan.view;
+
 
 namespace perpustakaan
 {
@@ -17,6 +19,7 @@ namespace perpustakaan
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new StartUp());
+            Application.Run(new FormLogin());
         }
     }
 }

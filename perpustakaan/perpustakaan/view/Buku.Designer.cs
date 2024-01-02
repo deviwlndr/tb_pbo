@@ -37,18 +37,18 @@
             this.tbCariData = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tbPengarang = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbNamaBuku = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DataBarang = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,9 +62,9 @@
             this.groupBox4.Controls.Add(this.btnUbah);
             this.groupBox4.Controls.Add(this.btnSimpan);
             this.groupBox4.Controls.Add(this.Refresh);
-            this.groupBox4.Location = new System.Drawing.Point(643, 417);
+            this.groupBox4.Location = new System.Drawing.Point(655, 494);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(463, 199);
+            this.groupBox4.Size = new System.Drawing.Size(463, 220);
             this.groupBox4.TabIndex = 7;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tombol Action";
@@ -72,7 +72,7 @@
             // btnHapus
             // 
             this.btnHapus.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnHapus.Location = new System.Drawing.Point(18, 151);
+            this.btnHapus.Location = new System.Drawing.Point(18, 170);
             this.btnHapus.Name = "btnHapus";
             this.btnHapus.Size = new System.Drawing.Size(428, 32);
             this.btnHapus.TabIndex = 3;
@@ -82,7 +82,7 @@
             // btnUbah
             // 
             this.btnUbah.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUbah.Location = new System.Drawing.Point(18, 108);
+            this.btnUbah.Location = new System.Drawing.Point(18, 127);
             this.btnUbah.Name = "btnUbah";
             this.btnUbah.Size = new System.Drawing.Size(428, 30);
             this.btnUbah.TabIndex = 2;
@@ -92,7 +92,7 @@
             // btnSimpan
             // 
             this.btnSimpan.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSimpan.Location = new System.Drawing.Point(18, 68);
+            this.btnSimpan.Location = new System.Drawing.Point(18, 79);
             this.btnSimpan.Name = "btnSimpan";
             this.btnSimpan.Size = new System.Drawing.Size(428, 34);
             this.btnSimpan.TabIndex = 1;
@@ -101,7 +101,7 @@
             // 
             // Refresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(18, 28);
+            this.Refresh.Location = new System.Drawing.Point(18, 32);
             this.Refresh.Name = "Refresh";
             this.Refresh.Size = new System.Drawing.Size(428, 34);
             this.Refresh.TabIndex = 0;
@@ -112,7 +112,7 @@
             // 
             this.groupBox3.Controls.Add(this.tbCariData);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Location = new System.Drawing.Point(643, 652);
+            this.groupBox3.Location = new System.Drawing.Point(655, 411);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(463, 62);
             this.groupBox3.TabIndex = 6;
@@ -123,7 +123,7 @@
             // 
             this.tbCariData.Location = new System.Drawing.Point(100, 26);
             this.tbCariData.Name = "tbCariData";
-            this.tbCariData.Size = new System.Drawing.Size(402, 26);
+            this.tbCariData.Size = new System.Drawing.Size(351, 26);
             this.tbCariData.TabIndex = 1;
             // 
             // label3
@@ -153,6 +153,54 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Form Input Buku";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(142, 260);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(462, 26);
+            this.textBox3.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 263);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 20);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Kategori";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(142, 157);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(462, 26);
+            this.textBox2.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 20);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Penerbit";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(142, 209);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(462, 26);
+            this.textBox1.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 212);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 20);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Tahun Terbit";
             // 
             // tbPengarang
             // 
@@ -205,54 +253,6 @@
             this.DataBarang.RowTemplate.Height = 28;
             this.DataBarang.Size = new System.Drawing.Size(1087, 345);
             this.DataBarang.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 212);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Tahun Terbit";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(142, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(462, 26);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Penerbit";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(142, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(462, 26);
-            this.textBox2.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 263);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Kategori";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(142, 260);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(462, 26);
-            this.textBox3.TabIndex = 9;
             // 
             // Buku
             // 
