@@ -133,6 +133,12 @@
     <Compile Include="view\FormPeminjaman.Designer.cs">
       <DependentUpon>FormPeminjaman.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\FormPengembalian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPengembalian.Designer.cs">
+      <DependentUpon>FormPengembalian.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\FormRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormPeminjaman.resx">
       <DependentUpon>FormPeminjaman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPengembalian.resx">
+      <DependentUpon>FormPengembalian.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormRegister.resx">
       <DependentUpon>FormRegister.cs</DependentUpon>

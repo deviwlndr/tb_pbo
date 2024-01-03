@@ -1,7 +1,6 @@
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.csproj.AssemblyReference.cache
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.Properties.Resources.resources
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.StartUp.resources
-C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.Buku.resources
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormLogin.resources
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.ParentForm.resources
 C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.csproj.GenerateResource.cache
@@ -91,3 +90,7 @@ E:\tb_pbo\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.About.resources
 E:\tb_pbo\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormBuku.resources
 E:\tb_pbo\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormPeminjaman.resources
 E:\tb_pbo\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormRegister.resources
+C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.About.resources
+C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormBuku.resources
+C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormPeminjaman.resources
+C:\Semester 3\Tugas Besar\perpustakaan\perpustakaan\obj\Debug\perpustakaan.view.FormRegister.resources

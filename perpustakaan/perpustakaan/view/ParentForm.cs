@@ -62,5 +62,21 @@ namespace perpustakaan.view
         {
 
         }
+
+        private void dataBukuToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FormBuku FormBuku = new FormBuku();
+            FormBuku.MdiParent = this;
+            FormBuku.Show();
+
+        }
+
+        private void dataPengembalianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPengembalian pengembalian = new FormPengembalian();
+            pengembalian.MdiParent = this;
+            pengembalian.Show();
+
+        }
     }
 }
