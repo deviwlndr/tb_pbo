@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controller\CekLogin.cs" />
+    <Compile Include="controller\CekRegister.cs" />
     <Compile Include="controller\Koneksi.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
@@ -108,17 +109,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\Buku.cs">
+    <Compile Include="view\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\Buku.Designer.cs">
-      <DependentUpon>Buku.cs</DependentUpon>
+    <Compile Include="view\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormBuku.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormBuku.Designer.cs">
+      <DependentUpon>FormBuku.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormPeminjaman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPeminjaman.Designer.cs">
+      <DependentUpon>FormPeminjaman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="view\ParentForm.cs">
       <SubType>Form</SubType>
@@ -138,11 +157,20 @@
     <EmbeddedResource Include="StartUp.resx">
       <DependentUpon>StartUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\Buku.resx">
-      <DependentUpon>Buku.cs</DependentUpon>
+    <EmbeddedResource Include="view\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormBuku.resx">
+      <DependentUpon>FormBuku.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPeminjaman.resx">
+      <DependentUpon>FormPeminjaman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\ParentForm.resx">
       <DependentUpon>ParentForm.cs</DependentUpon>

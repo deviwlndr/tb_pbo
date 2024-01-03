@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace perpustakaan.view
 {
-    public partial class Buku : Form
+    public partial class FormPeminjaman : Form
     {
-        public Buku()
+        public FormPeminjaman()
         {
             InitializeComponent();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

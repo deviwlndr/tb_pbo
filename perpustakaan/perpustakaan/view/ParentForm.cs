@@ -31,5 +31,36 @@ namespace perpustakaan.view
         {
             Application.Exit();
         }
+
+        private void dataPeminjamanToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FormBuku buku = new FormBuku();
+            buku.MdiParent = this;
+            buku.Show();
+        }
+
+        private void tentangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.MdiParent = this;
+            about.Show();
+        }
+
+        private void dataPeminjamanToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormPeminjaman peminjaman = new FormPeminjaman();
+            peminjaman.MdiParent = this;
+            peminjaman.Show();
+        }
+
+        private void dataBukuToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void dataBukuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

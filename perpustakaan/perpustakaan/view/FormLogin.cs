@@ -55,5 +55,13 @@ namespace perpustakaan.view
             }
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+           // Membuka form registrasi
+           FormRegister register = new FormRegister();
+           register.ShowDialog();
+        }
     }
 }

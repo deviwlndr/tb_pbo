@@ -1,6 +1,6 @@
 ﻿namespace perpustakaan.view
 {
-    partial class Buku
+    partial class FormBuku
     {
         /// <summary>
         /// Required designer variable.
