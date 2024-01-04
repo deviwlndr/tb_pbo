@@ -98,9 +98,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\Buku.cs" />
     <Compile Include="controller\CekLogin.cs" />
     <Compile Include="controller\CekRegister.cs" />
     <Compile Include="controller\Koneksi.cs" />
+    <Compile Include="model\M_buku.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
     </Compile>

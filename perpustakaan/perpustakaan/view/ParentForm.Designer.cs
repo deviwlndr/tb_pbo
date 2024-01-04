@@ -51,8 +51,7 @@
             this.dataTransaksiToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1186, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1380, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -91,7 +90,7 @@
             // dataBukuToolStripMenuItem2
             // 
             this.dataBukuToolStripMenuItem2.Name = "dataBukuToolStripMenuItem2";
-            this.dataBukuToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
+            this.dataBukuToolStripMenuItem2.Size = new System.Drawing.Size(195, 34);
             this.dataBukuToolStripMenuItem2.Text = "Data Buku";
             this.dataBukuToolStripMenuItem2.Click += new System.EventHandler(this.dataBukuToolStripMenuItem2_Click);
             // 
@@ -107,14 +106,14 @@
             // dataPeminjamanToolStripMenuItem1
             // 
             this.dataPeminjamanToolStripMenuItem1.Name = "dataPeminjamanToolStripMenuItem1";
-            this.dataPeminjamanToolStripMenuItem1.Size = new System.Drawing.Size(252, 34);
+            this.dataPeminjamanToolStripMenuItem1.Size = new System.Drawing.Size(267, 34);
             this.dataPeminjamanToolStripMenuItem1.Text = "Data Peminjaman";
             this.dataPeminjamanToolStripMenuItem1.Click += new System.EventHandler(this.dataPeminjamanToolStripMenuItem1_Click);
             // 
             // dataPengembalianToolStripMenuItem
             // 
             this.dataPengembalianToolStripMenuItem.Name = "dataPengembalianToolStripMenuItem";
-            this.dataPengembalianToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.dataPengembalianToolStripMenuItem.Size = new System.Drawing.Size(267, 34);
             this.dataPengembalianToolStripMenuItem.Text = "Data Pengembalian";
             this.dataPengembalianToolStripMenuItem.Click += new System.EventHandler(this.dataPengembalianToolStripMenuItem_Click);
             // 
@@ -122,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 780);
+            this.ClientSize = new System.Drawing.Size(1380, 1042);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

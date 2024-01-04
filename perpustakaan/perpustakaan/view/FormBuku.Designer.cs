@@ -32,28 +32,28 @@
             this.btnHapus = new System.Windows.Forms.Button();
             this.btnUbah = new System.Windows.Forms.Button();
             this.btnSimpan = new System.Windows.Forms.Button();
-            this.Refresh = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbCariData = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbKategori = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbPenerbit = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTahunTerbit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbPengarang = new System.Windows.Forms.TextBox();
+            this.tbPenulis = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbNamaBuku = new System.Windows.Forms.TextBox();
+            this.tbJudulBuku = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DataBarang = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.DataBuku = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataBarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataBuku)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -61,7 +61,7 @@
             this.groupBox4.Controls.Add(this.btnHapus);
             this.groupBox4.Controls.Add(this.btnUbah);
             this.groupBox4.Controls.Add(this.btnSimpan);
-            this.groupBox4.Controls.Add(this.Refresh);
+            this.groupBox4.Controls.Add(this.btnRefresh);
             this.groupBox4.Location = new System.Drawing.Point(655, 494);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(463, 220);
@@ -78,6 +78,7 @@
             this.btnHapus.TabIndex = 3;
             this.btnHapus.Text = "Hapus";
             this.btnHapus.UseVisualStyleBackColor = false;
+            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
             // 
             // btnUbah
             // 
@@ -88,6 +89,7 @@
             this.btnUbah.TabIndex = 2;
             this.btnUbah.Text = "Ubah";
             this.btnUbah.UseVisualStyleBackColor = false;
+            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
             // 
             // btnSimpan
             // 
@@ -98,15 +100,17 @@
             this.btnSimpan.TabIndex = 1;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseVisualStyleBackColor = false;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
             // 
-            // Refresh
+            // btnRefresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(18, 32);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(428, 34);
-            this.Refresh.TabIndex = 0;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Location = new System.Drawing.Point(18, 32);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(428, 34);
+            this.btnRefresh.TabIndex = 0;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // groupBox3
             // 
@@ -125,6 +129,7 @@
             this.tbCariData.Name = "tbCariData";
             this.tbCariData.Size = new System.Drawing.Size(351, 26);
             this.tbCariData.TabIndex = 1;
+            this.tbCariData.TextChanged += new System.EventHandler(this.tbCariData_TextChanged);
             // 
             // label3
             // 
@@ -137,91 +142,105 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.cbKategori);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.tbPenerbit);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.tbTahunTerbit);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.tbPengarang);
+            this.groupBox2.Controls.Add(this.tbPenulis);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.tbNamaBuku);
+            this.groupBox2.Controls.Add(this.tbJudulBuku);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(12, 405);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(623, 309);
+            this.groupBox2.Size = new System.Drawing.Size(623, 323);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Form Input Buku";
             // 
+            // cbKategori
+            // 
+            this.cbKategori.FormattingEnabled = true;
+            this.cbKategori.Items.AddRange(new object[] {
+            "Fiksi",
+            "Non-Fiksi",
+            "Drama",
+            "Puisi",
+            "Komik"});
+            this.cbKategori.Location = new System.Drawing.Point(142, 281);
+            this.cbKategori.Name = "cbKategori";
+            this.cbKategori.Size = new System.Drawing.Size(462, 28);
+            this.cbKategori.TabIndex = 9;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 263);
+            this.label6.Location = new System.Drawing.Point(12, 289);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 8;
             this.label6.Text = "Kategori";
             // 
-            // textBox2
+            // tbPenerbit
             // 
-            this.textBox2.Location = new System.Drawing.Point(142, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(462, 26);
-            this.textBox2.TabIndex = 7;
+            this.tbPenerbit.Location = new System.Drawing.Point(142, 191);
+            this.tbPenerbit.Name = "tbPenerbit";
+            this.tbPenerbit.Size = new System.Drawing.Size(462, 26);
+            this.tbPenerbit.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 157);
+            this.label5.Location = new System.Drawing.Point(12, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 20);
             this.label5.TabIndex = 6;
             this.label5.Text = "Penerbit";
             // 
-            // textBox1
+            // tbTahunTerbit
             // 
-            this.textBox1.Location = new System.Drawing.Point(142, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(462, 26);
-            this.textBox1.TabIndex = 5;
+            this.tbTahunTerbit.Location = new System.Drawing.Point(142, 237);
+            this.tbTahunTerbit.Name = "tbTahunTerbit";
+            this.tbTahunTerbit.Size = new System.Drawing.Size(462, 26);
+            this.tbTahunTerbit.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 212);
+            this.label4.Location = new System.Drawing.Point(12, 243);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Tahun Terbit";
             // 
-            // tbPengarang
+            // tbPenulis
             // 
-            this.tbPengarang.Location = new System.Drawing.Point(142, 98);
-            this.tbPengarang.Name = "tbPengarang";
-            this.tbPengarang.Size = new System.Drawing.Size(462, 26);
-            this.tbPengarang.TabIndex = 3;
+            this.tbPenulis.Location = new System.Drawing.Point(142, 129);
+            this.tbPenulis.Name = "tbPenulis";
+            this.tbPenulis.Size = new System.Drawing.Size(462, 26);
+            this.tbPenulis.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 98);
+            this.label2.Location = new System.Drawing.Point(12, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Penulis";
             // 
-            // tbNamaBuku
+            // tbJudulBuku
             // 
-            this.tbNamaBuku.Location = new System.Drawing.Point(142, 42);
-            this.tbNamaBuku.Name = "tbNamaBuku";
-            this.tbNamaBuku.Size = new System.Drawing.Size(462, 26);
-            this.tbNamaBuku.TabIndex = 1;
+            this.tbJudulBuku.Location = new System.Drawing.Point(142, 72);
+            this.tbJudulBuku.Name = "tbJudulBuku";
+            this.tbJudulBuku.Size = new System.Drawing.Size(462, 26);
+            this.tbJudulBuku.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 42);
+            this.label1.Location = new System.Drawing.Point(12, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 0;
@@ -229,7 +248,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DataBarang);
+            this.groupBox1.Controls.Add(this.DataBuku);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1106, 377);
@@ -237,48 +256,36 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table Data Buku";
             // 
-            // DataBarang
+            // DataBuku
             // 
-            this.DataBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataBarang.Location = new System.Drawing.Point(7, 26);
-            this.DataBarang.Name = "DataBarang";
-            this.DataBarang.RowHeadersWidth = 62;
-            this.DataBarang.RowTemplate.Height = 28;
-            this.DataBarang.Size = new System.Drawing.Size(1087, 345);
-            this.DataBarang.TabIndex = 0;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Fiksi",
-            "Non-Fiksi",
-            "Drama",
-            "Puisi",
-            "Komik"});
-            this.comboBox1.Location = new System.Drawing.Point(142, 259);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(462, 28);
-            this.comboBox1.TabIndex = 9;
+            this.DataBuku.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataBuku.Location = new System.Drawing.Point(7, 26);
+            this.DataBuku.Name = "DataBuku";
+            this.DataBuku.RowHeadersWidth = 62;
+            this.DataBuku.RowTemplate.Height = 28;
+            this.DataBuku.Size = new System.Drawing.Size(1087, 345);
+            this.DataBuku.TabIndex = 0;
+            this.DataBuku.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataBuku_CellClick);
             // 
             // FormBuku
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1155, 764);
+            this.ClientSize = new System.Drawing.Size(1218, 884);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormBuku";
             this.Text = "Buku";
+            this.Load += new System.EventHandler(this.FormBuku_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataBarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataBuku)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -289,22 +296,22 @@
         private System.Windows.Forms.Button btnHapus;
         private System.Windows.Forms.Button btnUbah;
         private System.Windows.Forms.Button btnSimpan;
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbCariData;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox tbPengarang;
+        private System.Windows.Forms.TextBox tbPenulis;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbNamaBuku;
+        private System.Windows.Forms.TextBox tbJudulBuku;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView DataBarang;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView DataBuku;
+        private System.Windows.Forms.TextBox tbTahunTerbit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbPenerbit;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbKategori;
     }
 }

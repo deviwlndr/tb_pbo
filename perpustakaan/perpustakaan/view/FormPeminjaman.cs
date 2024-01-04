@@ -12,9 +12,14 @@ namespace perpustakaan.view
 {
     public partial class FormPeminjaman : Form
     {
+       
         public FormPeminjaman()
         {
             InitializeComponent();
+        }
+
+        public void Tampil()
+        {
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
