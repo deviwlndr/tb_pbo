@@ -102,7 +102,9 @@
     <Compile Include="controller\CekLogin.cs" />
     <Compile Include="controller\CekRegister.cs" />
     <Compile Include="controller\Koneksi.cs" />
+    <Compile Include="controller\Mahasiswa.cs" />
     <Compile Include="model\M_buku.cs" />
+    <Compile Include="model\M_mahasiswa.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +130,12 @@
     </Compile>
     <Compile Include="view\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormMahasiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormMahasiswa.Designer.cs">
+      <DependentUpon>FormMahasiswa.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FormPeminjaman.cs">
       <SubType>Form</SubType>
@@ -173,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormMahasiswa.resx">
+      <DependentUpon>FormMahasiswa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormPeminjaman.resx">
       <DependentUpon>FormPeminjaman.cs</DependentUpon>

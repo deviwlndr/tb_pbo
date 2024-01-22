@@ -56,6 +56,9 @@ namespace perpustakaan.view
         private void dataBukuToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+            
+
+
         }
 
         private void dataBukuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,6 +80,13 @@ namespace perpustakaan.view
             pengembalian.MdiParent = this;
             pengembalian.Show();
 
+        }
+
+        private void dataMahasiswaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMahasiswa mhs = new FormMahasiswa();
+            mhs.MdiParent = this;
+            mhs.Show();
         }
     }
 }

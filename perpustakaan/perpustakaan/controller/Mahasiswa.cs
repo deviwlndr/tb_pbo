@@ -1,28 +1,28 @@
-﻿using perpustakaan.model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using perpustakaan.model;
 using System.Windows.Forms;
 
 namespace perpustakaan.controller
 {
-    internal class Buku
+    internal class Mahasiswa
     {
         //memenaggil class koneksi dan membuat objek baru
         Koneksi koneksi = new Koneksi();
 
         //Method Insert
-        public bool Insert(M_buku buku)
+        public bool Insert(M_mahasiswa mahasiswa)
         {
             Boolean status = false;
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("INSERT INTO t_buku (judul, penulis, penerbit, tahun_terbit, kategori) VALUES(' " + buku.Judul + "','" + buku.Penulis + "','" + buku.Penerbit + "','" + buku.Tahun_terbit + "','" + buku.Kategori + "')");
+                koneksi.ExecuteQuery("INSERT INTO t_mahasiswa (npm, nama, email, no_telp, prodi) VALUES(' " + mahasiswa.Npm + "','" + mahasiswa.Nama + "','" + mahasiswa.Email + "','" + mahasiswa.No_Telp + "','" + mahasiswa.Prodi + "')");
                 status = true;
-                MessageBox.Show("Data buku berhasil ditambahkan", "Informasi",
+                MessageBox.Show("Data mahasiswa berhasil ditambahkan", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
             }
@@ -31,17 +31,17 @@ namespace perpustakaan.controller
                 MessageBox.Show(e.Message, "Gagal Insert", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
-
         }
 
+
         //Method Update
-        public bool Update(M_buku buku, string id_buku)
+        public bool Update(M_mahasiswa mahasiswa, string id_mahasiswa)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_buku SET judul='" + buku.Judul + "'," + "penulis='" + buku.Penulis + "'," + "penerbit='" + buku.Penerbit + "'," + "tahun_terbit='" + buku.Tahun_terbit + "' WHERE id = '" + id_buku + "'");status = true;
-                MessageBox.Show("Data buku berhasil diubah", "Informasi",
+                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_mahasiswa SET npm='" + mahasiswa.Npm + "'," + "nama='" + mahasiswa.Nama + "'," + "email='" + mahasiswa.Email + "'," + "no_telp='" + mahasiswa.No_Telp + "'," + "prodi='" + mahasiswa.Prodi + "' WHERE id = '" + id_mahasiswa + "'"); status = true;
+                MessageBox.Show("Data mahasiswa berhasil diubah", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
             }
@@ -50,18 +50,16 @@ namespace perpustakaan.controller
                 MessageBox.Show(e.Message, "Gagal Update", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
-
         }
 
         //method delete
-
-        public bool Delete(string id_buku)
+        public bool Delete(string id_mahasiswa)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("DELETE FROM t_buku WHERE id='" + id_buku + "'"); 
-                MessageBox.Show("Data buku berhasil dihapus", "Informasi",
+                koneksi.OpenConnection(); koneksi.ExecuteQuery("DELETE FROM t_mahasiswa WHERE id='" + id_mahasiswa + "'");
+                MessageBox.Show("Data mahasiswa berhasil dihapus", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
             }
@@ -72,7 +70,5 @@ namespace perpustakaan.controller
             return status;
 
         }
-
-
     }
 }

@@ -25,13 +25,11 @@ namespace perpustakaan.view
 
         public void ResetForm()
         {
-           
             tbJudulBuku.Text = "";
             tbPenulis.Text = "";
             tbPenerbit.Text = "";
             tbTahunTerbit.Text = "";
             cbKategori.SelectedIndex = -1;  
-
         }
 
         public void Tampil()
@@ -74,9 +72,7 @@ namespace perpustakaan.view
 
                     ResetForm();
                     Tampil();
-            
             }
-
         }
 
         private void DataBuku_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,6 +141,26 @@ namespace perpustakaan.view
         {
             //Query DB seacrh data
             DataBuku.DataSource = koneksi.ShowData("SELECT * FROM t_buku WHERE id LIKE '%" + tbCariData.Text + "%' OR judul LIKE '%" + tbCariData.Text + "%'");
+        }
+
+        private void DataBuku_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tbJudulBuku_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
