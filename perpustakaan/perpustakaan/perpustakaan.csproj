@@ -103,8 +103,10 @@
     <Compile Include="controller\CekRegister.cs" />
     <Compile Include="controller\Koneksi.cs" />
     <Compile Include="controller\Mahasiswa.cs" />
+    <Compile Include="controller\Peminjaman.cs" />
     <Compile Include="model\M_buku.cs" />
     <Compile Include="model\M_mahasiswa.cs" />
+    <Compile Include="model\M_peminjaman.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
     </Compile>

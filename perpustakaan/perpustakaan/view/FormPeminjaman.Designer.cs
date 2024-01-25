@@ -37,33 +37,25 @@
             this.tbCariData = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.npm = new System.Windows.Forms.ComboBox();
+            this.judul = new System.Windows.Forms.TextBox();
+            this.tanggal_pengembalian = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.id_buku = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tanggal_peminjaman = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
             this.nama_peminjam = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.kategori = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tahun_terbit = new System.Windows.Forms.TextBox();
-            this.id_barang = new System.Windows.Forms.ComboBox();
-            this.penerbit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.penulis = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DataBarang = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.npm = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePickerPeminjaman = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerPengembalian = new System.Windows.Forms.DateTimePicker();
+            this.DataPeminjaman = new System.Windows.Forms.DataGridView();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DataBarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataPeminjaman)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox4
@@ -72,9 +64,9 @@
             this.groupBox4.Controls.Add(this.btnUbah);
             this.groupBox4.Controls.Add(this.btnSimpan);
             this.groupBox4.Controls.Add(this.Refresh);
-            this.groupBox4.Location = new System.Drawing.Point(775, 540);
+            this.groupBox4.Location = new System.Drawing.Point(764, 465);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(324, 228);
+            this.groupBox4.Size = new System.Drawing.Size(345, 233);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tombol Action";
@@ -108,6 +100,7 @@
             this.btnSimpan.TabIndex = 1;
             this.btnSimpan.Text = "Simpan";
             this.btnSimpan.UseVisualStyleBackColor = false;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
             // 
             // Refresh
             // 
@@ -136,6 +129,7 @@
             this.tbCariData.Name = "tbCariData";
             this.tbCariData.Size = new System.Drawing.Size(240, 26);
             this.tbCariData.TabIndex = 1;
+            this.tbCariData.TextChanged += new System.EventHandler(this.tbCariData_TextChanged);
             // 
             // label3
             // 
@@ -148,15 +142,17 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePickerPengembalian);
-            this.groupBox2.Controls.Add(this.dateTimePickerPeminjaman);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.npm);
+            this.groupBox2.Controls.Add(this.judul);
+            this.groupBox2.Controls.Add(this.tanggal_pengembalian);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.id_buku);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.tanggal_peminjaman);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.nama_peminjam);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(3, 385);
             this.groupBox2.Name = "groupBox2";
@@ -165,9 +161,87 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Form Peminjaman Buku";
             // 
+            // npm
+            // 
+            this.npm.FormattingEnabled = true;
+            this.npm.Location = new System.Drawing.Point(197, 34);
+            this.npm.Name = "npm";
+            this.npm.Size = new System.Drawing.Size(200, 28);
+            this.npm.TabIndex = 22;
+            // 
+            // judul
+            // 
+            this.judul.Location = new System.Drawing.Point(197, 181);
+            this.judul.Name = "judul";
+            this.judul.Size = new System.Drawing.Size(552, 26);
+            this.judul.TabIndex = 11;
+            this.judul.TextChanged += new System.EventHandler(this.judul_TextChanged);
+            // 
+            // tanggal_pengembalian
+            // 
+            this.tanggal_pengembalian.Location = new System.Drawing.Point(197, 288);
+            this.tanggal_pengembalian.Name = "tanggal_pengembalian";
+            this.tanggal_pengembalian.Size = new System.Drawing.Size(200, 26);
+            this.tanggal_pengembalian.TabIndex = 21;
+            this.tanggal_pengembalian.Value = new System.DateTime(2024, 1, 25, 14, 18, 18, 0);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(201, 154);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(47, 20);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Judul";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 293);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(171, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Tanggal Pengembalian";
+            // 
+            // id_buku
+            // 
+            this.id_buku.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.id_buku.FormattingEnabled = true;
+            this.id_buku.Location = new System.Drawing.Point(197, 120);
+            this.id_buku.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.id_buku.Name = "id_buku";
+            this.id_buku.Size = new System.Drawing.Size(202, 28);
+            this.id_buku.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 234);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(157, 20);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Tanggal Peminjaman";
+            // 
+            // tanggal_peminjaman
+            // 
+            this.tanggal_peminjaman.Location = new System.Drawing.Point(197, 228);
+            this.tanggal_peminjaman.Name = "tanggal_peminjaman";
+            this.tanggal_peminjaman.Size = new System.Drawing.Size(200, 26);
+            this.tanggal_peminjaman.TabIndex = 20;
+            this.tanggal_peminjaman.Value = new System.DateTime(2024, 1, 25, 0, 0, 0, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "NPM";
+            // 
             // nama_peminjam
             // 
-            this.nama_peminjam.Location = new System.Drawing.Point(186, 46);
+            this.nama_peminjam.Location = new System.Drawing.Point(197, 72);
             this.nama_peminjam.Name = "nama_peminjam";
             this.nama_peminjam.Size = new System.Drawing.Size(250, 26);
             this.nama_peminjam.TabIndex = 2;
@@ -175,113 +249,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 46);
+            this.label7.Location = new System.Drawing.Point(9, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(124, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Nama Peminjam";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.kategori);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.tahun_terbit);
-            this.groupBox5.Controls.Add(this.id_barang);
-            this.groupBox5.Controls.Add(this.penerbit);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Controls.Add(this.penulis);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Location = new System.Drawing.Point(186, 162);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox5.Size = new System.Drawing.Size(542, 206);
-            this.groupBox5.TabIndex = 13;
-            this.groupBox5.TabStop = false;
-            // 
-            // kategori
-            // 
-            this.kategori.Location = new System.Drawing.Point(286, 158);
-            this.kategori.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.kategori.Name = "kategori";
-            this.kategori.Size = new System.Drawing.Size(222, 26);
-            this.kategori.TabIndex = 9;
-            this.kategori.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(282, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 20);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Kategori";
-            // 
-            // tahun_terbit
-            // 
-            this.tahun_terbit.Location = new System.Drawing.Point(9, 158);
-            this.tahun_terbit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tahun_terbit.Name = "tahun_terbit";
-            this.tahun_terbit.Size = new System.Drawing.Size(250, 26);
-            this.tahun_terbit.TabIndex = 8;
-            // 
-            // id_barang
-            // 
-            this.id_barang.FormattingEnabled = true;
-            this.id_barang.Location = new System.Drawing.Point(9, 17);
-            this.id_barang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.id_barang.Name = "id_barang";
-            this.id_barang.Size = new System.Drawing.Size(250, 28);
-            this.id_barang.TabIndex = 0;
-            // 
-            // penerbit
-            // 
-            this.penerbit.Location = new System.Drawing.Point(286, 92);
-            this.penerbit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.penerbit.Name = "penerbit";
-            this.penerbit.Size = new System.Drawing.Size(222, 26);
-            this.penerbit.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Tahun Terbit";
-            // 
-            // penulis
-            // 
-            this.penulis.Location = new System.Drawing.Point(9, 92);
-            this.penulis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.penulis.Name = "penulis";
-            this.penulis.Size = new System.Drawing.Size(250, 26);
-            this.penulis.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(282, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 20);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Penerbit";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Penulis";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 173);
+            this.label1.Location = new System.Drawing.Point(14, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 0;
@@ -290,77 +267,31 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DataBarang);
+            this.groupBox1.Controls.Add(this.DataPeminjaman);
             this.groupBox1.Location = new System.Drawing.Point(3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1106, 377);
+            this.groupBox1.Size = new System.Drawing.Size(1154, 377);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table Peminjaman Buku";
             // 
-            // DataBarang
+            // DataPeminjaman
             // 
-            this.DataBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataBarang.Location = new System.Drawing.Point(8, 26);
-            this.DataBarang.Name = "DataBarang";
-            this.DataBarang.RowHeadersWidth = 62;
-            this.DataBarang.RowTemplate.Height = 28;
-            this.DataBarang.Size = new System.Drawing.Size(1088, 345);
-            this.DataBarang.TabIndex = 0;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(450, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 20);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "NPM";
-            // 
-            // npm
-            // 
-            this.npm.Location = new System.Drawing.Point(499, 46);
-            this.npm.Name = "npm";
-            this.npm.Size = new System.Drawing.Size(250, 26);
-            this.npm.TabIndex = 16;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(157, 20);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Tanggal Peminjaman";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(10, 134);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(171, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Tanggal Pengembalian";
-            // 
-            // dateTimePickerPeminjaman
-            // 
-            this.dateTimePickerPeminjaman.Location = new System.Drawing.Point(186, 90);
-            this.dateTimePickerPeminjaman.Name = "dateTimePickerPeminjaman";
-            this.dateTimePickerPeminjaman.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerPeminjaman.TabIndex = 20;
-            // 
-            // dateTimePickerPengembalian
-            // 
-            this.dateTimePickerPengembalian.Location = new System.Drawing.Point(186, 128);
-            this.dateTimePickerPengembalian.Name = "dateTimePickerPengembalian";
-            this.dateTimePickerPengembalian.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePickerPengembalian.TabIndex = 21;
+            this.DataPeminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DataPeminjaman.Location = new System.Drawing.Point(8, 26);
+            this.DataPeminjaman.Name = "DataPeminjaman";
+            this.DataPeminjaman.RowHeadersWidth = 62;
+            this.DataPeminjaman.RowTemplate.Height = 28;
+            this.DataPeminjaman.Size = new System.Drawing.Size(1257, 345);
+            this.DataPeminjaman.TabIndex = 0;
+            this.DataPeminjaman.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPeminjaman_CellClick);
+            this.DataPeminjaman.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPeminjaman_CellContentClick);
             // 
             // FormPeminjaman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1132, 780);
+            this.ClientSize = new System.Drawing.Size(1166, 780);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -368,15 +299,14 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormPeminjaman";
             this.Text = "FormPeminjaman";
+            this.Load += new System.EventHandler(this.FormPeminjaman_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DataBarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataPeminjaman)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -392,26 +322,19 @@
         private System.Windows.Forms.TextBox tbCariData;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView DataBarang;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ComboBox id_barang;
-        private System.Windows.Forms.TextBox penerbit;
-        private System.Windows.Forms.TextBox penulis;
-        private System.Windows.Forms.TextBox kategori;
-        private System.Windows.Forms.TextBox tahun_terbit;
+        private System.Windows.Forms.DataGridView DataPeminjaman;
+        private System.Windows.Forms.ComboBox id_buku;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox nama_peminjam;
-        private System.Windows.Forms.DateTimePicker dateTimePickerPengembalian;
-        private System.Windows.Forms.DateTimePicker dateTimePickerPeminjaman;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox npm;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox judul;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker tanggal_pengembalian;
+        private System.Windows.Forms.DateTimePicker tanggal_peminjaman;
+        private System.Windows.Forms.ComboBox npm;
     }
 }

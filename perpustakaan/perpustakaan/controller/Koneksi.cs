@@ -17,6 +17,8 @@ namespace perpustakaan.controller
         string conectionstring = "Server=localhost;Database=tb_pbo;Uid=root;Pwd=;";
         MySqlConnection kon;
 
+
+
         public void OpenConnection()
         {
             kon = new MySqlConnection(conectionstring);

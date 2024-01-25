@@ -17,7 +17,7 @@ namespace perpustakaan.view
     {
         Koneksi koneksi = new Koneksi();
         M_buku m_buku = new M_buku();
-        string id;
+        string id_buku;
         public FormBuku()
         {
             InitializeComponent();
@@ -77,7 +77,7 @@ namespace perpustakaan.view
 
         private void DataBuku_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = DataBuku.Rows[e.RowIndex].Cells[0].Value.ToString();
+            id_buku = DataBuku.Rows[e.RowIndex].Cells[0].Value.ToString();
             tbJudulBuku.Text = DataBuku.Rows[e.RowIndex].Cells[1].Value.ToString();
             tbPenulis.Text = DataBuku.Rows[e.RowIndex].Cells[2].Value.ToString();
             tbPenerbit.Text = DataBuku.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -102,7 +102,7 @@ namespace perpustakaan.view
                     m_buku.Tahun_terbit = tbTahunTerbit.Text;
                     m_buku.Kategori = cbKategori.Text;
 
-                    buku.Update(m_buku, id);
+                    buku.Update(m_buku, id_buku);
 
                     ResetForm();
                     Tampil();
@@ -131,7 +131,7 @@ namespace perpustakaan.view
             if (pesan == DialogResult.Yes)
             {
                 Buku buku = new Buku();
-                buku.Delete(id);
+                buku.Delete(id_buku);
                 ResetForm();
                 Tampil();
             }

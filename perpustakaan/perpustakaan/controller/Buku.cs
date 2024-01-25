@@ -35,12 +35,12 @@ namespace perpustakaan.controller
         }
 
         //Method Update
-        public bool Update(M_buku buku, string id_buku)
+        public bool Update(M_buku buku, string id)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_buku SET judul='" + buku.Judul + "'," + "penulis='" + buku.Penulis + "'," + "penerbit='" + buku.Penerbit + "'," + "tahun_terbit='" + buku.Tahun_terbit + "' WHERE id = '" + id_buku + "'");status = true;
+                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_buku SET judul='" + buku.Judul + "'," + "penulis='" + buku.Penulis + "'," + "penerbit='" + buku.Penerbit + "'," + "tahun_terbit='" + buku.Tahun_terbit + "' WHERE id_buku = '" + id + "'");status = true;
                 MessageBox.Show("Data buku berhasil diubah", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
@@ -55,12 +55,12 @@ namespace perpustakaan.controller
 
         //method delete
 
-        public bool Delete(string id_buku)
+        public bool Delete(string id)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("DELETE FROM t_buku WHERE id='" + id_buku + "'"); 
+                koneksi.OpenConnection(); koneksi.ExecuteQuery("DELETE FROM t_buku WHERE id_buku='" + id + "'"); 
                 MessageBox.Show("Data buku berhasil dihapus", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();

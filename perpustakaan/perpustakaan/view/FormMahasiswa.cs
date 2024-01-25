@@ -16,7 +16,7 @@ namespace perpustakaan.view
     {
         Koneksi koneksi = new Koneksi();
         M_mahasiswa m_mahasiswa = new M_mahasiswa();
-        string id;
+        string npm;
         public FormMahasiswa()
         {
             InitializeComponent();
@@ -35,12 +35,12 @@ namespace perpustakaan.view
         {
             DataMhs.DataSource = koneksi.ShowData("SELECT * FROM t_mahasiswa");
             //mengubah nama kolom tabel
-            DataMhs.Columns[0].HeaderText = "ID Mahasiswa";
-            DataMhs.Columns[1].HeaderText = "Npm";
-            DataMhs.Columns[2].HeaderText = "Nama";
-            DataMhs.Columns[3].HeaderText = "Email";
-            DataMhs.Columns[4].HeaderText = "No Telp";
-            DataMhs.Columns[5].HeaderText = "Prodi";
+           
+            DataMhs.Columns[0].HeaderText = "Npm";
+            DataMhs.Columns[1].HeaderText = "Nama";
+            DataMhs.Columns[2].HeaderText = "Email";
+            DataMhs.Columns[3].HeaderText = "No Telp";
+            DataMhs.Columns[4].HeaderText = "Prodi";
         }
 
         private void FormMahasiswa_Load(object sender, EventArgs e)
@@ -75,12 +75,12 @@ namespace perpustakaan.view
 
         private void DataMahasiswa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = DataMhs.Rows[e.RowIndex].Cells[0].Value.ToString();
-            tbNpm.Text = DataMhs.Rows[e.RowIndex].Cells[1].Value.ToString();
-            tbNama.Text = DataMhs.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tbEmail.Text = DataMhs.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tbNoTelp.Text = DataMhs.Rows[e.RowIndex].Cells[4].Value.ToString();
-            cbProdi.Text = DataMhs.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+            tbNpm.Text = DataMhs.Rows[e.RowIndex].Cells[0].Value.ToString();
+            tbNama.Text = DataMhs.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tbEmail.Text = DataMhs.Rows[e.RowIndex].Cells[2].Value.ToString();
+            tbNoTelp.Text = DataMhs.Rows[e.RowIndex].Cells[3].Value.ToString();
+            cbProdi.Text = DataMhs.Rows[e.RowIndex].Cells[4].Value.ToString();
         }
 
         private void tbCariData_TextChanged(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace perpustakaan.view
                 m_mahasiswa.No_Telp = tbNoTelp.Text;
                 m_mahasiswa.Prodi = cbProdi.Text;
 
-                mhs.Update(m_mahasiswa, id);
+                mhs.Update(m_mahasiswa, npm);
 
                 ResetForm();
                 Tampil();
@@ -140,7 +140,7 @@ namespace perpustakaan.view
             if (pesan == DialogResult.Yes)
             {
                 Mahasiswa mhs = new Mahasiswa();
-                mhs.Delete(id);
+                mhs.Delete(m_mahasiswa, tbNpm.Text);
                 ResetForm();
                 Tampil();
             }

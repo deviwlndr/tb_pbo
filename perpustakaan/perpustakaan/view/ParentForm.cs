@@ -1,4 +1,5 @@
-﻿using System;
+﻿using perpustakaan.controller;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace perpustakaan.view
 {
@@ -15,6 +17,7 @@ namespace perpustakaan.view
         public ParentForm()
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
         }
 
         private void dataPeminjamanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,10 +58,13 @@ namespace perpustakaan.view
 
         private void dataBukuToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
             
 
-
+            // Buka form login
+            ParentForm pform = new ParentForm();
+            this.Hide();// Set MdiParent dari form login
+            FormLogin login = new FormLogin();  
+            login.Show();
         }
 
         private void dataBukuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -87,6 +93,11 @@ namespace perpustakaan.view
             FormMahasiswa mhs = new FormMahasiswa();
             mhs.MdiParent = this;
             mhs.Show();
+        }
+
+        private void ParentForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

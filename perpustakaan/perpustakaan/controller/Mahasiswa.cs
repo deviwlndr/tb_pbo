@@ -35,12 +35,12 @@ namespace perpustakaan.controller
 
 
         //Method Update
-        public bool Update(M_mahasiswa mahasiswa, string id_mahasiswa)
+        public bool Update(M_mahasiswa mahasiswa, string npm)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_mahasiswa SET npm='" + mahasiswa.Npm + "'," + "nama='" + mahasiswa.Nama + "'," + "email='" + mahasiswa.Email + "'," + "no_telp='" + mahasiswa.No_Telp + "'," + "prodi='" + mahasiswa.Prodi + "' WHERE id = '" + id_mahasiswa + "'"); status = true;
+                koneksi.OpenConnection(); koneksi.ExecuteQuery("UPDATE t_mahasiswa SET nama='" + mahasiswa.Nama + "'," + "email='" + mahasiswa.Email + "'," + "no_telp='" + mahasiswa.No_Telp + "'," + "prodi='" + mahasiswa.Prodi + "' WHERE npm = '" + npm + "'"); 
                 MessageBox.Show("Data mahasiswa berhasil diubah", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
@@ -53,12 +53,13 @@ namespace perpustakaan.controller
         }
 
         //method delete
-        public bool Delete(string id_mahasiswa)
+        public bool Delete(M_mahasiswa mahasiswa, string npm)
         {
             Boolean status = false;
             try
             {
-                koneksi.OpenConnection(); koneksi.ExecuteQuery("DELETE FROM t_mahasiswa WHERE id='" + id_mahasiswa + "'");
+                koneksi.OpenConnection();
+                koneksi.ExecuteQuery("DELETE FROM t_mahasiswa WHERE npm='" + npm + "'");
                 MessageBox.Show("Data mahasiswa berhasil dihapus", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 koneksi.CloseConnection();
