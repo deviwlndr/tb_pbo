@@ -43,6 +43,16 @@ namespace perpustakaan.view
 
         }
 
+        public void ResetForm()
+        {
+            id_buku.SelectedIndex = -1;
+            nama_peminjam.Text = "";
+            npm.Text = "";
+            judul.Text = "";
+            tanggal_peminjaman.Text = "";
+            tanggal_pengembalian.Text = "";
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -164,32 +174,72 @@ namespace perpustakaan.view
 
         private void btnSimpan_Click(object sender, EventArgs e)
         {
-            if ( id_buku.SelectedIndex == -1 || npm.Text == "" || nama_peminjam.Text == ""|| judul.Text == "" || tanggal_peminjaman.Text == "" || tanggal_pengembalian.Text=="")
+                if (id_buku.SelectedIndex == -1 || npm.Text == "" || nama_peminjam.Text == "" || judul.Text == "" || tanggal_peminjaman.Value == null || tanggal_pengembalian.Value == null)
+                {
+                    MessageBox.Show("Isi form dengan benar sebelum disimpan!", "Gagal Menyimpan Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Peminjaman pinjam = new Peminjaman();
+
+                    DateTime tanggalPeminjaman = tanggal_peminjaman.Value;
+                    DateTime tanggalPengembalian = tanggal_pengembalian.Value;
+
+                    m_peminjaman.Tanggal_peminjaman = tanggalPeminjaman.ToString("yyyy-MM-dd");
+                    m_peminjaman.Tanggal_pengembalian = tanggalPengembalian.ToString("yyyy-MM-dd");
+
+                    m_peminjaman.Id_buku = id_buku.Text;
+                    m_peminjaman.Npm = npm.Text;
+
+                    pinjam.Insert(m_peminjaman);
+                    ResetForm();
+                    Tampil();
+                }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            ResetForm();
+            Tampil();
+        }
+
+        private void btnUbah_Click(object sender, EventArgs e)
+        {
+            if (id_buku.SelectedIndex == -1 || npm.Text == "" || nama_peminjam.Text == "" || judul.Text == "" || tanggal_peminjaman.Value == null || tanggal_pengembalian.Value == null)
             {
-                MessageBox.Show("Isi form dengan benar sebelum disimpan!", "Gagal Menyimpan Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Isi form dengan benar sebelum disimpan!", "Gagal Mengubah Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 Peminjaman pinjam = new Peminjaman();
-                
-                // Konversi tanggal dari string MySQL ke objek DateTime
-                DateTime tanggalPeminjaman = DateTime.ParseExact(tanggal_peminjaman.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                DateTime tanggalPengembalian = DateTime.ParseExact(tanggal_pengembalian.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-                
+
+                DateTime tanggalPeminjaman = tanggal_peminjaman.Value;
+                DateTime tanggalPengembalian = tanggal_pengembalian.Value;
+
+                m_peminjaman.Tanggal_peminjaman = tanggalPeminjaman.ToString("yyyy-MM-dd");
+                m_peminjaman.Tanggal_pengembalian = tanggalPengembalian.ToString("yyyy-MM-dd");
+
                 m_peminjaman.Id_buku = id_buku.Text;
                 m_peminjaman.Npm = npm.Text;
-                m_peminjaman.Tanggal_peminjaman = tanggal_peminjaman.Text;
-                m_peminjaman.Tanggal_pengembalian = tanggal_pengembalian.Text;
 
-
-                pinjam.Insert(m_peminjaman);
-                
+                pinjam.Update(m_peminjaman, id_peminjaman);
+                ResetForm();
                 Tampil();
             }
 
-
         }
 
-    
+        private void btnHapus_Click(object sender, EventArgs e)
+        {
+            DialogResult pesan = MessageBox.Show("Apakah yakin akan menghapus data ini?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (pesan == DialogResult.Yes)
+            {
+                Peminjaman pinjam = new Peminjaman();
+                pinjam.Delete(id_peminjaman);
+                ResetForm();
+                Tampil();
+            }
+
+        }
     }
 }
