@@ -100,7 +100,7 @@
   <ItemGroup>
     <Compile Include="controller\Buku.cs" />
     <Compile Include="controller\CekLogin.cs" />
-    <Compile Include="controller\CekRegister.cs" />
+    <Compile Include="controller\Register.cs" />
     <Compile Include="controller\Koneksi.cs" />
     <Compile Include="controller\Mahasiswa.cs" />
     <Compile Include="controller\Peminjaman.cs" />
@@ -109,6 +109,7 @@
     <Compile Include="model\M_mahasiswa.cs" />
     <Compile Include="model\M_peminjaman.cs" />
     <Compile Include="model\M_pengembalian.cs" />
+    <Compile Include="model\M_register.cs" />
     <Compile Include="StartUp.cs">
       <SubType>Form</SubType>
     </Compile>

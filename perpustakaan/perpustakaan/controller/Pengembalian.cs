@@ -21,7 +21,8 @@ namespace perpustakaan.controller
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("INSERT INTO t_pengembalian (id_buku, npm, id_peminjaman) VALUES('" + pengembalian.Id_buku + "','" + pengembalian.Npm + "','" + pengembalian.Id_peminjaman + "')");
+                koneksi.ExecuteQuery("INSERT INTO t_pengembalian (id_buku, npm, id_peminjaman)" +
+                    " VALUES('" + pengembalian.Id_buku + "','" + pengembalian.Npm + "','" + pengembalian.Id_peminjaman + "')");
                 status = true;
                 MessageBox.Show("Data berhasil ditambahkan", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
