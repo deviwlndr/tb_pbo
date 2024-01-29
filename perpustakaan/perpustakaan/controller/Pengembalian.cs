@@ -56,26 +56,7 @@ namespace perpustakaan.controller
             return status;
         }
 
-        //Method update
-        public bool Update(M_pengembalian pengembalian, string id)
-        {
-            Boolean status = false;
-            try
-            {
-                koneksi.OpenConnection();
-                koneksi.ExecuteQuery("UPDATE t_pengembalian SET id_buku='" + pengembalian.Id_buku + "'," + "npm='" + pengembalian.Npm + "id_peminjaman='" + pengembalian.Id_peminjaman + "' WHERE id_pengembalian='" + id + "'");
-                status = true;
-                MessageBox.Show("Data berhasil diubah", "Informasi",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                koneksi.CloseConnection();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }
-            return status;
-        }
+        
         //Method delete
         public bool Delete(string id)
         {

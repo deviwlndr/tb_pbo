@@ -31,7 +31,7 @@ namespace perpustakaan.view
         {
             DataPeminjaman.DataSource = koneksi.ShowData("SELECT " +
           " t_peminjaman.id_peminjaman, t_buku.id_buku, nama, t_mahasiswa.npm, judul, tanggal_peminjaman, tanggal_pengembalian " +
-          " FROM t_peminjaman JOIN t_buku ON (t_buku.id_buku = t_peminjaman.id_buku) JOIN t_mahasiswa ON (t_mahasiswa.npm = t_peminjaman.npm)");
+          " FROM t_peminjaman JOIN t_buku ON (t_peminjaman.id_buku = t_buku.id_buku) JOIN t_mahasiswa ON (t_mahasiswa.npm = t_peminjaman.npm)");
             //mengubah nama header tabel
             DataPeminjaman.Columns[0].HeaderText = "ID Peminjaman";
             DataPeminjaman.Columns[1].HeaderText = "ID Buku";

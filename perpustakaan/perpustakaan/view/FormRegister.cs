@@ -53,15 +53,20 @@ namespace perpustakaan.view
       
 
                 registrasi.Insert(m_register);
-
+                this.Hide();
+                FormLogin login = new FormLogin();
+                login.Show();
             }
         }
         
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Membuka form login
+            // Menampilkan form login
             FormLogin login = new FormLogin();
-            login.ShowDialog();
+            login.Show();
+
+            // Menutup form login yang lama
+            this.Close();
         }
 
         private void FormRegister_Load(object sender, EventArgs e)

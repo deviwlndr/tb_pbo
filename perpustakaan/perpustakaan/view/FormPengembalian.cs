@@ -18,7 +18,7 @@ namespace perpustakaan.view
         Koneksi koneksi = new Koneksi();
         M_pengembalian m_pengembalian = new M_pengembalian();
         string id_pengembalian;
-        string tanggalDariMySQL = "25/01/2024";
+        
 
         public FormPengembalian()
         {
@@ -28,18 +28,22 @@ namespace perpustakaan.view
         public void Tampil()
         {
             DataPengembalian.DataSource = koneksi.ShowData("SELECT " +
-          " t_pengembalian.id_pengembalian, t_peminjaman.tanggal_peminjaman, tanggal_pengembalian, t_buku.id_buku, judul, t_mahasiswa.npm, nama " +
-          " FROM t_pengembalian JOIN t_peminjaman ON (t_peminjaman.id_peminjaman = t_pengembalian.id_peminjaman) JOIN t_buku ON (t_buku.id_buku = t_pengembalian.id_buku) JOIN t_mahasiswa ON (t_mahasiswa.npm = t_pengembalian.npm)");
-            //mengubah nama header tabel
+            "t_pengembalian.id_pengembalian, t_peminjaman.id_peminjaman, t_mahasiswa.nama, t_mahasiswa.npm, t_buku.id_buku, t_buku.judul, t_peminjaman.tanggal_peminjaman, t_peminjaman.tanggal_pengembalian " +
+            "FROM t_pengembalian " +
+            "JOIN t_peminjaman ON t_pengembalian.id_peminjaman = t_peminjaman.id_peminjaman " +
+            "JOIN t_buku ON t_pengembalian.id_buku = t_buku.id_buku " +
+            "JOIN t_mahasiswa ON t_pengembalian.npm = t_mahasiswa.npm");
+
+
+            // Mengubah nama header tabel (pastikan indeks sesuai)
             DataPengembalian.Columns[0].HeaderText = "ID Pengembalian";
             DataPengembalian.Columns[1].HeaderText = "ID Peminjaman";
             DataPengembalian.Columns[2].HeaderText = "Nama Peminjam";
             DataPengembalian.Columns[3].HeaderText = "NPM";
-            DataPengembalian.Columns[4].HeaderText = "Tanggal Peminjaman";
-            DataPengembalian.Columns[5].HeaderText = "Tanggal Pengembalian";
-            DataPengembalian.Columns[6].HeaderText = "ID Buku";
-            DataPengembalian.Columns[7].HeaderText = "Judul";
-           /* DataPengembalian.Columns[8].HeaderText = "Durasi Pinjam";*/
+            DataPengembalian.Columns[4].HeaderText = "ID Buku";
+            DataPengembalian.Columns[5].HeaderText = "Judul";
+            DataPengembalian.Columns[6].HeaderText = "Tanggal Peminjaman";
+            DataPengembalian.Columns[7].HeaderText = "Tanggal Pengembalian";
 
         }
 
@@ -88,6 +92,10 @@ namespace perpustakaan.view
             while (reader.Read())
             {
                 id_peminjaman.Items.Add(reader.GetString("id_peminjaman"));
+                judul.Text = reader.GetString(0);
+                tanggal_peminjaman.Text = reader.GetString(1);
+                tanggal_pengembalian.Text = reader.GetString(2);
+
             }
             reader.Close();
             koneksi.CloseConnection();
@@ -130,11 +138,10 @@ namespace perpustakaan.view
             id_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[1].Value.ToString();
             nama_peminjam.Text = DataPengembalian.Rows[e.RowIndex].Cells[2].Value.ToString();
             npm.Text = DataPengembalian.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tanggal_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[4].Value.ToString();
-            tanggal_pengembalian.Text = DataPengembalian.Rows[e.RowIndex].Cells[5].Value.ToString();
-            id_buku.Text = DataPengembalian.Rows[e.RowIndex].Cells[6].Value.ToString();
-            judul.Text = DataPengembalian.Rows[e.RowIndex].Cells[7].Value.ToString();
-            /*durasi_pinjam.Text = DataPengembalian.Rows[e.RowIndex].Cells[8].Value.ToString();*/
+            id_buku.Text = DataPengembalian.Rows[e.RowIndex].Cells[4].Value.ToString();
+            judul.Text = DataPengembalian.Rows[e.RowIndex].Cells[5].Value.ToString();
+            tanggal_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[6].Value.ToString();
+            tanggal_pengembalian.Text = DataPengembalian.Rows[e.RowIndex].Cells[7].Value.ToString();
         }
 
         private void btnSimpan_Click(object sender, EventArgs e)
@@ -147,12 +154,7 @@ namespace perpustakaan.view
             {
                 Pengembalian pengembalian = new Pengembalian();
 
-               /* DateTime tanggalPeminjaman = tanggal_peminjaman.Value;
-                DateTime tanggalPengembalian = tanggal_pengembalian.Value;
-
-                m_pengembalian.Tanggal_peminjaman = tanggalPeminjaman.ToString("yyyy-MM-dd");
-                m_pengembalian.Tanggal_pengembalian = tanggalPengembalian.ToString("yyyy-MM-dd");*/
-
+               
                 m_pengembalian.Id_buku = id_buku.Text;
                 m_pengembalian.Npm = npm.Text;
                 m_pengembalian.Id_peminjaman = id_peminjaman.Text;

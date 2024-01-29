@@ -59,9 +59,12 @@ namespace perpustakaan.view
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
 
-           // Membuka form registrasi
-           FormRegister register = new FormRegister();
-           register.ShowDialog();
+           //Membuka form registrasi
+            FormRegister register = new FormRegister();
+            register.Show();
+
+            // Menyembunyikan form login sementara form registrasi terbuka
+            this.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
