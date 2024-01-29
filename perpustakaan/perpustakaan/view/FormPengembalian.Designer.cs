@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPengembalian));
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnHapus = new System.Windows.Forms.Button();
-            this.btnUbah = new System.Windows.Forms.Button();
             this.btnSimpan = new System.Windows.Forms.Button();
-            this.Refresh = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbCariData = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tanggal_pengembalian = new System.Windows.Forms.DateTimePicker();
+            this.tanggal_peminjaman = new System.Windows.Forms.DateTimePicker();
+            this.id_buku = new System.Windows.Forms.TextBox();
             this.npm = new System.Windows.Forms.TextBox();
             this.id_peminjaman = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,9 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DataPengembalian = new System.Windows.Forms.DataGridView();
-            this.id_buku = new System.Windows.Forms.TextBox();
-            this.tanggal_peminjaman = new System.Windows.Forms.DateTimePicker();
-            this.tanggal_pengembalian = new System.Windows.Forms.DateTimePicker();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,10 +60,7 @@
             // 
             this.groupBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox4.BackgroundImage")));
             this.groupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.groupBox4.Controls.Add(this.btnHapus);
-            this.groupBox4.Controls.Add(this.btnUbah);
             this.groupBox4.Controls.Add(this.btnSimpan);
-            this.groupBox4.Controls.Add(this.Refresh);
             this.groupBox4.Location = new System.Drawing.Point(800, 469);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(345, 234);
@@ -75,34 +69,10 @@
             this.groupBox4.Text = "Tombol Action";
             this.groupBox4.UseWaitCursor = true;
             // 
-            // btnHapus
-            // 
-            this.btnHapus.BackColor = System.Drawing.Color.Red;
-            this.btnHapus.Location = new System.Drawing.Point(18, 174);
-            this.btnHapus.Name = "btnHapus";
-            this.btnHapus.Size = new System.Drawing.Size(312, 32);
-            this.btnHapus.TabIndex = 3;
-            this.btnHapus.Text = "Hapus";
-            this.btnHapus.UseVisualStyleBackColor = false;
-            this.btnHapus.UseWaitCursor = true;
-            this.btnHapus.Click += new System.EventHandler(this.btnHapus_Click);
-            // 
-            // btnUbah
-            // 
-            this.btnUbah.BackColor = System.Drawing.Color.Yellow;
-            this.btnUbah.Location = new System.Drawing.Point(18, 128);
-            this.btnUbah.Name = "btnUbah";
-            this.btnUbah.Size = new System.Drawing.Size(312, 31);
-            this.btnUbah.TabIndex = 2;
-            this.btnUbah.Text = "Ubah";
-            this.btnUbah.UseVisualStyleBackColor = false;
-            this.btnUbah.UseWaitCursor = true;
-            this.btnUbah.Click += new System.EventHandler(this.btnUbah_Click);
-            // 
             // btnSimpan
             // 
             this.btnSimpan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSimpan.Location = new System.Drawing.Point(18, 78);
+            this.btnSimpan.Location = new System.Drawing.Point(14, 41);
             this.btnSimpan.Name = "btnSimpan";
             this.btnSimpan.Size = new System.Drawing.Size(312, 34);
             this.btnSimpan.TabIndex = 1;
@@ -110,18 +80,6 @@
             this.btnSimpan.UseVisualStyleBackColor = false;
             this.btnSimpan.UseWaitCursor = true;
             this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
-            // 
-            // Refresh
-            // 
-            this.Refresh.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.Refresh.Location = new System.Drawing.Point(18, 26);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(312, 34);
-            this.Refresh.TabIndex = 0;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = false;
-            this.Refresh.UseWaitCursor = true;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // groupBox3
             // 
@@ -178,6 +136,30 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Form Pengembalian Buku";
             this.groupBox2.UseWaitCursor = true;
+            // 
+            // tanggal_pengembalian
+            // 
+            this.tanggal_pengembalian.Location = new System.Drawing.Point(196, 283);
+            this.tanggal_pengembalian.Name = "tanggal_pengembalian";
+            this.tanggal_pengembalian.Size = new System.Drawing.Size(200, 26);
+            this.tanggal_pengembalian.TabIndex = 35;
+            this.tanggal_pengembalian.UseWaitCursor = true;
+            // 
+            // tanggal_peminjaman
+            // 
+            this.tanggal_peminjaman.Location = new System.Drawing.Point(196, 228);
+            this.tanggal_peminjaman.Name = "tanggal_peminjaman";
+            this.tanggal_peminjaman.Size = new System.Drawing.Size(200, 26);
+            this.tanggal_peminjaman.TabIndex = 34;
+            this.tanggal_peminjaman.UseWaitCursor = true;
+            // 
+            // id_buku
+            // 
+            this.id_buku.Location = new System.Drawing.Point(196, 125);
+            this.id_buku.Name = "id_buku";
+            this.id_buku.Size = new System.Drawing.Size(100, 26);
+            this.id_buku.TabIndex = 33;
+            this.id_buku.UseWaitCursor = true;
             // 
             // npm
             // 
@@ -293,27 +275,6 @@
             this.DataPengembalian.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPengembalian_CellClick);
             this.DataPengembalian.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataPengembalian_CellContentClick);
             // 
-            // id_buku
-            // 
-            this.id_buku.Location = new System.Drawing.Point(196, 125);
-            this.id_buku.Name = "id_buku";
-            this.id_buku.Size = new System.Drawing.Size(100, 26);
-            this.id_buku.TabIndex = 33;
-            // 
-            // tanggal_peminjaman
-            // 
-            this.tanggal_peminjaman.Location = new System.Drawing.Point(196, 228);
-            this.tanggal_peminjaman.Name = "tanggal_peminjaman";
-            this.tanggal_peminjaman.Size = new System.Drawing.Size(200, 26);
-            this.tanggal_peminjaman.TabIndex = 34;
-            // 
-            // tanggal_pengembalian
-            // 
-            this.tanggal_pengembalian.Location = new System.Drawing.Point(196, 283);
-            this.tanggal_pengembalian.Name = "tanggal_pengembalian";
-            this.tanggal_pengembalian.Size = new System.Drawing.Size(200, 26);
-            this.tanggal_pengembalian.TabIndex = 35;
-            // 
             // FormPengembalian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -340,10 +301,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnHapus;
-        private System.Windows.Forms.Button btnUbah;
         private System.Windows.Forms.Button btnSimpan;
-        private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox tbCariData;
         private System.Windows.Forms.Label label3;

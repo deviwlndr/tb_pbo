@@ -40,6 +40,27 @@ namespace perpustakaan.view
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
+            
+        }
+        
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Menutup form register yang lama
+            FormRegister register = new FormRegister();
+            this.Hide();
+
+            // Menampilkan form login
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
+
+        private void FormRegister_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegister_Click_1(object sender, EventArgs e)
+        {
             if (tbUsername.Text == "" || tbPassword.Text == "")
             {
                 MessageBox.Show("Data tidak boleh kosong", "Peringatan",
@@ -50,7 +71,7 @@ namespace perpustakaan.view
                 Register registrasi = new Register();
                 m_register.Username = tbUsername.Text;
                 m_register.Password = tbPassword.Text;
-      
+
 
                 registrasi.Insert(m_register);
                 this.Hide();
@@ -58,20 +79,10 @@ namespace perpustakaan.view
                 login.Show();
             }
         }
-        
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+
+        private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // Menampilkan form login
-            FormLogin login = new FormLogin();
-            login.Show();
-
-            // Menutup form login yang lama
-            this.Close();
-        }
-
-        private void FormRegister_Load(object sender, EventArgs e)
-        {
-
+            
         }
     }
 }

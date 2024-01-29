@@ -23,6 +23,9 @@ namespace perpustakaan.view
         public FormPengembalian()
         {
             InitializeComponent();
+            npm.ReadOnly = true;
+            id_buku.ReadOnly = true;
+            judul.ReadOnly = true;
         }
 
         public void Tampil()

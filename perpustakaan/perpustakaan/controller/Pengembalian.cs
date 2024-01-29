@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using perpustakaan.model;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace perpustakaan.controller
 {
@@ -33,11 +34,14 @@ namespace perpustakaan.controller
                 MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
+
+           
         }
 
         //Method update
         public bool Update(M_pengembalian pengembalian, string id)
         {
+
             Boolean status = false;
             try
             {
