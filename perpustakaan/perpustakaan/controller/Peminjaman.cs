@@ -47,7 +47,7 @@ namespace perpustakaan.controller
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("UPDATE t_peminjaman SET id_buku='" + peminjaman.Id_buku + "'," + "npm= '" + peminjaman.Npm + "'," + "tanggal_peminjaman='" + peminjaman.Tanggal_peminjaman + "'," + "tanggal_pengembalian='" + peminjaman.Tanggal_pengembalian + "' WHERE id_peminjaman='" + id + "'");
+                koneksi.ExecuteQuery("UPDATE t_pengembalian SET id_buku=@id_buku, npm=@npm, id_peminjaman=@id_peminjaman WHERE id_pengembalian=@id_pengembalian");
                 status = true;
                 MessageBox.Show("Data berhasil diubah", "Informasi",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

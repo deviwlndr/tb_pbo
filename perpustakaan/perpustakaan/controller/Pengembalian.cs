@@ -42,16 +42,17 @@ namespace perpustakaan.controller
             try
             {
                 koneksi.OpenConnection();
-                koneksi.ExecuteQuery("UPDATE t_pengembalian SET id_buku='" + pengembalian.Id_buku + "'," + "npm='" + pengembalian.Npm + "id_peminjaman='" + pengembalian.Id_peminjaman + "' WHERE id_pengembalian='" + id + "'");
+                koneksi.ExecuteQuery("UPDATE t_pengembalian SET id_buku='" + pengembalian.Id_buku + "', npm='" + pengembalian.Npm + "', id_peminjaman='" + pengembalian.Id_peminjaman + "' WHERE id_pengembalian='" + id + "'");
                 status = true;
-                MessageBox.Show("Data berhasil diubah", "Informasi",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                koneksi.CloseConnection();
+                MessageBox.Show("Data berhasil diubah", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                koneksi.CloseConnection();
             }
             return status;
         }

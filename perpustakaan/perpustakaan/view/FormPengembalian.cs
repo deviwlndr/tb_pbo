@@ -28,29 +28,28 @@ namespace perpustakaan.view
         public void Tampil()
         {
             DataPengembalian.DataSource = koneksi.ShowData("SELECT " +
-            "t_pengembalian.id_pengembalian, t_peminjaman.id_peminjaman, t_mahasiswa.nama, t_mahasiswa.npm, t_buku.id_buku, t_buku.judul, t_peminjaman.tanggal_peminjaman, t_peminjaman.tanggal_pengembalian " +
+            "t_pengembalian.id_pengembalian, t_peminjaman.id_peminjaman, t_mahasiswa.npm, t_buku.id_buku, t_buku.judul, t_peminjaman.tanggal_peminjaman, t_peminjaman.tanggal_pengembalian " +
             "FROM t_pengembalian " +
-            "JOIN t_peminjaman ON t_pengembalian.id_peminjaman = t_peminjaman.id_peminjaman " +
-            "JOIN t_buku ON t_pengembalian.id_buku = t_buku.id_buku " +
-            "JOIN t_mahasiswa ON t_pengembalian.npm = t_mahasiswa.npm");
-
+            "JOIN t_peminjaman ON (t_pengembalian.id_peminjaman = t_peminjaman.id_peminjaman) " +
+            "JOIN t_buku ON (t_pengembalian.id_buku = t_buku.id_buku) " +
+            "JOIN t_mahasiswa ON (t_pengembalian.npm = t_mahasiswa.npm) ");
 
             // Mengubah nama header tabel (pastikan indeks sesuai)
             DataPengembalian.Columns[0].HeaderText = "ID Pengembalian";
             DataPengembalian.Columns[1].HeaderText = "ID Peminjaman";
-            DataPengembalian.Columns[2].HeaderText = "Nama Peminjam";
-            DataPengembalian.Columns[3].HeaderText = "NPM";
-            DataPengembalian.Columns[4].HeaderText = "ID Buku";
-            DataPengembalian.Columns[5].HeaderText = "Judul";
-            DataPengembalian.Columns[6].HeaderText = "Tanggal Peminjaman";
-            DataPengembalian.Columns[7].HeaderText = "Tanggal Pengembalian";
+            
+            DataPengembalian.Columns[2].HeaderText = "NPM";
+            DataPengembalian.Columns[3].HeaderText = "ID Buku";
+            DataPengembalian.Columns[4].HeaderText = "Judul";
+            DataPengembalian.Columns[5].HeaderText = "Tanggal Peminjaman";
+            DataPengembalian.Columns[6].HeaderText = "Tanggal Pengembalian";
 
         }
 
         public void ResetForm()
         {
             id_peminjaman.Text = "";
-            nama_peminjam.Text = "";
+           
             npm.Text = "";
             tanggal_peminjaman.Text = "";
             tanggal_pengembalian.Text = "";
@@ -77,33 +76,103 @@ namespace perpustakaan.view
         private void FormPengembalian_Load(object sender, EventArgs e)
         {
             Tampil();
+            
+            GetDataNpm();
             GetDataIDPeminjaman();
-           
-
+            GetDataIDBuku();
+            GetDataJudul();
+            GetTglPinjam();
+            GetTglKembali();
             id_peminjaman.SelectedIndexChanged += id_peminjaman_SelectedIndexChanged;
         }
 
+
         public void GetDataIDPeminjaman()
         {
-            //ambil data ID Peminjaman dari table (T_peminjaman) untuk mengisi data pada combobox id buku
+            //ambil data ID Buku dari table (T_buku) untuk mengisi data pada combobox id buku
             koneksi.OpenConnection();
-            MySqlDataReader reader = koneksi.reader("SELECT t_peminjaman.id_peminjaman, t_peminjaman.tanggal_peminjaman, t_peminjaman.tanggal_pengembalian, t_buku.judul, t_mahasiswa.nama" +
-                "FROM t_peminjaman JOIN t_buku ON (t_peminjaman.id_buku = t_buku.id_buku) JOIN t_mahasiswa ON (t_peminjaman.npm = t_mahasiswa.npm) JOIN t_pengembalian ON (t_peminjaman.id_peminjaman = t_pengembalian.id_peminjaman) ");
+            MySqlDataReader reader = koneksi.reader("SELECT * FROM t_peminjaman");
             while (reader.Read())
             {
                 id_peminjaman.Items.Add(reader.GetString("id_peminjaman"));
-                judul.Text = reader.GetString(0);
-                tanggal_peminjaman.Text = reader.GetString(1);
-                tanggal_pengembalian.Text = reader.GetString(2);
+            }
+            reader.Close();
+            koneksi.CloseConnection();
+        }
+        public void GetDataNpm()
+        {
 
+            koneksi.OpenConnection();
+            MySqlDataReader reader = koneksi.reader("SELECT npm FROM t_peminjaman WHERE id_peminjaman = '" + id_peminjaman.Text + "'");
+            while (reader.Read())
+            {
+                npm.Text = reader.GetString(0);
             }
             reader.Close();
             koneksi.CloseConnection();
         }
 
+        public void GetDataIDBuku()
+        {
+            //ambil data ID Buku dari table (T_buku) untuk mengisi data pada combobox id buku
+            koneksi.OpenConnection();
+            MySqlDataReader reader = koneksi.reader("SELECT id_buku FROM t_peminjaman WHERE id_peminjaman = '" + id_peminjaman.Text + "'");
+            while (reader.Read())
+            {
+                id_buku.Text = reader.GetString(0);
+            }
+            reader.Close();
+            koneksi.CloseConnection();
+        }
+
+        public void GetDataJudul()
+        {
+
+            koneksi.OpenConnection();
+            MySqlDataReader reader = koneksi.reader("SELECT judul FROM t_buku WHERE id_buku = '" + id_buku.Text + "'");
+            while (reader.Read())
+            {
+                judul.Text = reader.GetString(0);
+            }
+            reader.Close();
+            koneksi.CloseConnection();
+        }
+
+        public void GetTglPinjam()
+        {
+
+            koneksi.OpenConnection();
+            MySqlDataReader reader = koneksi.reader("SELECT tanggal_peminjaman FROM t_peminjaman WHERE id_peminjaman = '" + id_peminjaman.Text + "'");
+            while (reader.Read())
+            {
+                tanggal_peminjaman.Text = reader.GetString(0);
+            }
+            reader.Close();
+            koneksi.CloseConnection();
+        }
+
+        public void GetTglKembali()
+        {
+
+            koneksi.OpenConnection();
+            MySqlDataReader reader = koneksi.reader("SELECT tanggal_pengembalian FROM t_peminjaman WHERE id_peminjaman = '" + id_peminjaman.Text + "'");
+            while (reader.Read())
+            {
+                tanggal_pengembalian.Text = reader.GetString(0);
+            }
+            reader.Close();
+            koneksi.CloseConnection();
+        }
+
+
         private void id_peminjaman_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetDataIDPeminjaman();
+            GetDataNpm();
+            GetDataIDBuku();
+            GetDataJudul();
+            GetTglPinjam();
+            GetTglKembali();
         }
 
 
@@ -116,10 +185,10 @@ namespace perpustakaan.view
         private void tbCariData_TextChanged(object sender, EventArgs e)
         {
             //Query search data
-            DataPengembalian.DataSource = koneksi.ShowData("SELECT id_pengembalian, t_peminjaman.id_peminjaman, tanggal_peminjaman, tanggal pengembalian, t_mahasiswa.npm, nama" +
-                "FROM t_pengembalian JOIN t_peminjaman  ON (t_peminjaman.id_peminjaman = t_pengembalian.id_pengembalian)" +
-                "WHERE t_pengembalian.id_peminjaman LIKE '%' '" + tbCariData.Text + "' '%' " +
-                "OR tanggal_peminjaman LIKE '%' '" + tbCariData.Text + "' '%'");
+            DataPengembalian.DataSource = koneksi.ShowData("SELECT id_pengembalian, t_peminjaman.id_peminjaman, tanggal_peminjaman, tanggal_pengembalian, t_mahasiswa.npm, nama " +
+            "FROM t_pengembalian JOIN t_peminjaman ON (t_peminjaman.id_peminjaman = t_pengembalian.id_peminjaman) " +
+            "WHERE t_pengembalian.id_peminjaman LIKE '%" + tbCariData.Text + "%' " +
+            "OR tanggal_peminjaman LIKE '%" + tbCariData.Text + "%'");
         }
 
         private void DataPengembalian_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -136,17 +205,17 @@ namespace perpustakaan.view
         {
             id_pengembalian = DataPengembalian.Rows[e.RowIndex].Cells[0].Value.ToString();
             id_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[1].Value.ToString();
-            nama_peminjam.Text = DataPengembalian.Rows[e.RowIndex].Cells[2].Value.ToString();
-            npm.Text = DataPengembalian.Rows[e.RowIndex].Cells[3].Value.ToString();
-            id_buku.Text = DataPengembalian.Rows[e.RowIndex].Cells[4].Value.ToString();
-            judul.Text = DataPengembalian.Rows[e.RowIndex].Cells[5].Value.ToString();
-            tanggal_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[6].Value.ToString();
-            tanggal_pengembalian.Text = DataPengembalian.Rows[e.RowIndex].Cells[7].Value.ToString();
+            
+            npm.Text = DataPengembalian.Rows[e.RowIndex].Cells[2].Value.ToString();
+            id_buku.Text = DataPengembalian.Rows[e.RowIndex].Cells[3].Value.ToString();
+            judul.Text = DataPengembalian.Rows[e.RowIndex].Cells[4].Value.ToString();
+            tanggal_peminjaman.Text = DataPengembalian.Rows[e.RowIndex].Cells[5].Value.ToString();
+            tanggal_pengembalian.Text = DataPengembalian.Rows[e.RowIndex].Cells[6].Value.ToString();
         }
 
         private void btnSimpan_Click(object sender, EventArgs e)
         {
-            if (id_peminjaman.SelectedIndex == -1 || npm.Text == "" || nama_peminjam.Text == "" || id_buku.Text == "" || judul.Text == "" || id_peminjaman.Text == "" || tanggal_peminjaman.Text == null || tanggal_pengembalian.Text == null)
+            if (id_peminjaman.SelectedIndex == -1 || npm.Text == "" || id_buku.Text == "" || judul.Text == "" || id_peminjaman.Text == "" || tanggal_peminjaman.Text == null || tanggal_pengembalian.Text == null)
             {
                 MessageBox.Show("Isi form dengan benar sebelum disimpan!", "Gagal Menyimpan Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -154,10 +223,10 @@ namespace perpustakaan.view
             {
                 Pengembalian pengembalian = new Pengembalian();
 
-               
-                m_pengembalian.Id_buku = id_buku.Text;
-                m_pengembalian.Npm = npm.Text;
                 m_pengembalian.Id_peminjaman = id_peminjaman.Text;
+                m_pengembalian.Npm = npm.Text;
+                m_pengembalian.Id_buku = id_buku.Text;
+                
 
                 pengembalian.Insert(m_pengembalian);
                 ResetForm();
@@ -167,17 +236,18 @@ namespace perpustakaan.view
 
         private void btnUbah_Click(object sender, EventArgs e)
         {
-            if (id_peminjaman.SelectedIndex == -1 || npm.Text == "" || nama_peminjam.Text == "" || id_buku.Text == "" || judul.Text == "" || id_peminjaman.Text == "" || tanggal_peminjaman.Text == null || tanggal_pengembalian.Text == null)
+            if (id_peminjaman.SelectedIndex == -1 || npm.Text == "" || id_buku.Text == "" || judul.Text == "" || id_peminjaman.Text == "" || tanggal_peminjaman.Text == null || tanggal_pengembalian.Text == null)
             {
-                MessageBox.Show("Isi form dengan benar sebelum disimpan!", "Gagal Mengubah Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ubah form dengan benar sebelum disimpan!", "Gagal Menyimpan Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 Pengembalian pengembalian = new Pengembalian();
 
-                m_pengembalian.Id_buku = id_buku.Text;
-                m_pengembalian.Npm = npm.Text;
                 m_pengembalian.Id_peminjaman = id_peminjaman.Text;
+                m_pengembalian.Npm = npm.Text;
+                m_pengembalian.Id_buku = id_buku.Text;
+
 
                 pengembalian.Update(m_pengembalian, id_pengembalian);
                 ResetForm();

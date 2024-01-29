@@ -50,7 +50,6 @@ namespace perpustakaan.controller
                 MessageBox.Show(e.Message, "Gagal Update", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return status;
-
         }
 
         //method delete
