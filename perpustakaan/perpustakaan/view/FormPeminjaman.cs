@@ -241,5 +241,10 @@ namespace perpustakaan.view
             }
 
         }
+
+        private void id_buku_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
     }
 }
